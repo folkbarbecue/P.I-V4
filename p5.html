@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style3.css">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <title>Adicionar Lembretes</title>
+</head>
+<body>
+    <div class="header">Adicionar Lembretes</div>
+    <div class="search-bar">
+        <input type="text" id="lembreInput" placeholder="O que deseja lembrar?!">
+    </div>
+    <div class="search-bar">
+        <input type="time" id="horaInput" placeholder="Selecione a hora!">
+    </div>
+    <a href="./p6.html" class="botao-link">Voltar</a>
+    <button id="addBtn">Adicionar Lembrete</button>
+
+    <script>
+        document.getElementById('addBtn').addEventListener('click', function() {
+            const lembreInput = document.getElementById('lembreInput');
+            const horaInput = document.getElementById('horaInput');
+            const lembreText = lembreInput.value.trim();
+            const horaText = horaInput.value;
+
+            if (lembreText && horaText) {
+                fetch('adicionar_lembrete.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: `texto=${lembreText}&hora=${horaText}`
+                })
+                .then(response => response.text())
+                .then(data => {
+                    alert('Lembrete adicionado com sucesso!');
+                    lembreInput.value = '';
+                    horaInput.value = '';
+                })
+                .catch(error => {
+                    alert('Erro ao adicionar lembrete');
+                    console.error('Erro:', error);
+                });
+            } else {
+                alert('Por favor, preencha todos os campos!');
+            }
+        });
+    </script>
+</body>
+</html>

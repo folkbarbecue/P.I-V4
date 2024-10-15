@@ -1,0 +1,229 @@
+/* Estilos gerais */
+body {
+  background-color: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.cartao {
+  background-color: #723ED9;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  width: 100%;
+}
+
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.usuario .saudacao {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.barraBusca {
+  margin-top: 10px;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.barraBusca input {
+  width: 85%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: #ffffff54;
+}
+
+.barraBusca .busca {
+  position: absolute;
+  right: 10%;
+  top: 50%;
+  align-items: center;
+  color: #ffffff;
+  font-size: 18px;
+  transform: translateY(-50%);
+}
+
+.icone {
+  text-align: center;
+  margin: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.icones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* Para ajustar a posição dos ícones em telas menores */
+  margin-top: 20px;
+}
+
+/* Removendo a cor dos textos e ícones */
+.icone span, .textoa {
+  color: #1d0057;
+}
+
+.lembretes {
+  margin-top: 30px;
+  width: 100%;
+}
+
+.tituloLembretes, .tituloJogos {
+  font-size: 28px;
+  color: inherit; /* Remove a cor específica */
+  text-align: center;
+}
+
+.quadradoJogos {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap; /* Manter os jogos lado a lado */
+}
+
+.imagemJogo1, .imagemJogo2, .imagemJogo3 {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  border-radius: 30px;
+  background-size: cover;
+  background-position: center;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Usando a imagem desejada para os três quadrados de jogos */
+.imagemJogo1, .imagemJogo2, .imagemJogo3 {
+  background-image: url('./assets/img/tabuleiro-de-damas-ou-de-xadrez-preto-e-branco-sem-costura_1005220-13232.avif');
+}
+
+/* Estilos para os lembretes lado a lado */
+#lembretesContainer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.bloco {
+  display: flex;
+  flex-direction: column;
+  background-color: #beb8b83b;
+  border-radius: 10px;
+  color: rgb(0, 0, 0);
+  width: 30%;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.211);
+}
+
+.bloco h3, .bloco h6 {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.botao-remover {
+  background-color: #723ED9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  align-self: flex-end;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.botao-remover:hover {
+  background-color: #582eab;
+}
+
+.botao-remover:active {
+  background-color: #4812b4;
+  transform: scale(0.98);
+}
+
+/* Remover as bordas azuladas dos links e imagens */
+a, a:focus, a:active, a:visited {
+  outline: none;
+  text-decoration: none;
+}
+
+img {
+  border: none;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .icone {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+  }
+
+  .material-symbols-outlined {
+    font-size: 24px;
+    color: black;
+  }
+
+  .tituloLembretes, .tituloJogos {
+    font-size: 22px;
+  }
+
+  .imagemJogo1, .imagemJogo2, .imagemJogo3 {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  .bloco {
+    max-width: 100%;
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .icone {
+    width: 50px;
+    height: 50px;
+  }
+
+  .material-symbols-outlined {
+    font-size: 20px;
+  }
+
+  .tituloLembretes, .tituloJogos {
+    font-size: 18px;
+  }
+
+  .imagemJogo1, .imagemJogo2, .imagemJogo3 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .bloco {
+    max-width: 100%;
+    width: 100%;
+  }
+}

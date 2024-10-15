@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style3.css">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <title>Lembretes</title>
+</head>
+<body>
+
+<div class="header">Lembretes</div>
+
+<div class="search-bar">
+    <input type="text" id="searchInput" placeholder="Digite aqui o que deseja!">
+    <button id="addLembreteBtn">Adicionar Lembrete</button> <!-- Botão para adicionar lembrete -->
+</div> 
+
+<a href="./p5.html" class="botao-link"> + Lembretes</a>
+<button id="removeAllBtn" class="botao-link">Remover Todos os Lembretes</button>
+
+<div id="lembretesContainer" class="lembretes"></div>
+
+<script>
+    // Função para carregar e renderizar os lembretes salvos no localStorage
+    function loadLembretes() {
+        const lembretesContainer = document.getElementById('lembretesContainer');
+        const lembretes = JSON.parse(localStorage.getItem('lembretes')) || []; // Carrega os lembretes do localStorage
+        console.log('Lembretes carregados:', lembretes); // Debug: veja o que está sendo carregado
+        lembretesContainer.innerHTML = ''; // Limpa o container antes de adicionar os lembretes
+
+        lembretes.forEach((lembrete, index) => {
+            renderLembrete(lembrete.text, lembrete.hora, index);
+        });
+    }
+
+    // Função para renderizar um lembrete na tela
+    function renderLembrete(text, hora, index) {
+        console.log('Adicionando lembrete:', text, hora); // Debug: veja cada lembrete que está sendo adicionado
+        const lembretesContainer = document.getElementById('lembretesContainer');
+
+        const bloco = document.createElement('div');
+        bloco.classList.add('bloco', `lembrete-${index}`); // Adiciona uma classe específica para o lembrete
+        bloco.innerHTML = `
+            <h3>${text}</h3>
+            <h6>${hora}</h6>
+            <button class="botao-remover" onclick="removeLembrete(${index})">Remover</button>
+        `;
+
+        lembretesContainer.appendChild(bloco);
+    }
+
+    // Função para adicionar um novo lembrete ao localStorage
+    document.getElementById('addLembreteBtn').addEventListener('click', function() {
+        const input = document.getElementById('searchInput').value; // Pega o valor do input
+        if (input.trim() === "") {
+            alert('Por favor, insira um lembrete.');
+            return;
+        }
+
+        const hora = new Date().toLocaleTimeString(); // Adiciona a hora atual ao lembrete
+        let lembretes = JSON.parse(localStorage.getItem('lembretes')) || [];
+        
+        // Adiciona o novo lembrete à lista
+        lembretes.push({ text: input, hora: hora });
+        localStorage.setItem('lembretes', JSON.stringify(lembretes)); // Salva a lista atualizada no localStorage
+
+        loadLembretes(); // Recarrega a lista de lembretes para exibir o novo
+        document.getElementById('searchInput').value = ''; // Limpa o campo de input após adicionar
+    });
+
+    // Função para remover todos os lembretes
+    document.getElementById('removeAllBtn').addEventListener('click', function() {
+        if (confirm('Você tem certeza que deseja remover todos os lembretes?')) {
+            localStorage.removeItem('lembretes'); // Remove todos os lembretes do localStorage
+            loadLembretes(); // Recarrega a lista de lembretes (agora vazia)
+            alert('Todos os lembretes foram removidos.');
+        }
+    });
+
+    // Função para remover um lembrete específico
+    function removeLembrete(index) {
+        if (confirm('Você tem certeza que deseja remover este lembrete?')) {
+            let lembretes = JSON.parse(localStorage.getItem('lembretes')) || [];
+            lembretes.splice(index, 1); // Remove o lembrete da lista
+            localStorage.setItem('lembretes', JSON.stringify(lembretes)); // Atualiza o localStorage
+
+            // Remove o lembrete do DOM sem recarregar a página
+            const lembreteElement = document.querySelector(`.lembrete-${index}`);
+            if (lembreteElement) {
+                lembreteElement.remove();
+            }
+            // Recarrega os lembretes para atualizar os índices
+            loadLembretes();
+        }
+    }
+
+    // Carrega os lembretes ao abrir a página
+    loadLembretes();
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+body {
+    background-color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .linkVerTodos {
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    color: #21005D;
+    font-style: inherit;
+  }
+  
+  .cartao {
+    background-color: #723ED9;
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+  }
+  
+  
+  .cabecalho {
+    display: flex;
+    justify-content: space-between;
+  align-items: center;
+    color: white;
+    
+  }
+  
+  .usuario {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .usuario .saudacao {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .perfil {
+    margin-top: 10px;
+  }
+  .material-symbols-outlined-busca{
+margin-top: -7px;
+  }
+  .barraBusca {
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .barraBusca input {
+    width: 85%;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: #ffffff54;
+  }
+  
+  .barraBusca .busca {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    color: #ffffff;
+    font-size: 18px;
+  }
+  
+  .icone {
+    text-align: center;
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    padding: 10px;
+  }
+  
+  .material-symbols-outlined {
+    font-size: 36px;
+  color: #555;
+    margin-bottom: 5px; 
+  }
+  
+  .localtitulo {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  
+  }
+  
+  .lcz {
+    font-size: 24px;
+    color: #440bb6; 
+  }
+
+  
+  /* Estilos para os links dos ícones */
+  .linkIcone {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 4px;
+    border-color: #723ED9;
+  }
+  li {
+    background: #e9ecef;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  .lembretes {
+    margin-top: 20px;
+    width: 300px;
+  }
+  #lembre {
+    border-radius: 17px;
+    border: 2px solid #c2c2c2;
+    width: 100%;
+    padding: 8px;
+    margin-top: 20px;
+  }
+  
+  
+  .lembrete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .lembrete p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .botao-remover {
+    background-color: #ffffff; /* Cor vermelha */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .botao-remover:hover {
+    background-color: #582eab; /* Muda a cor no hover */
+  }
+  
+  .botao-remover:active {
+    background-color: #4812b4; /* Cor ao clicar */
+    transform: scale(0.98); /* Efeito de clique */
+  }
+  
+  .bloco {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #beb8b83b;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+    width: 300px;
+    padding: 10px;
+    box-shadow: 5px 5px 9px rgba(0, 0, 0, 0.211);
+  }
+  
+  .bloco h3, .bloco h6 {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Use `normal` se quiser quebra de linha */
+  }
+  
+  .botao-remover {
+    background-color: #723ED9;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px; /* Espaço acima do botão */
+    align-self: flex-end
+  }
+  
+  
